@@ -17,6 +17,7 @@
 		A5858D3A2813D50F0059F89B /* StationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5858D392813D50F0059F89B /* StationDetailViewController.swift */; };
 		A5858D3C2813DC2A0059F89B /* StationDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5858D3B2813DC2A0059F89B /* StationDetailCollectionViewCell.swift */; };
 		A5858D432813E5AE0059F89B /* StationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5858D422813E5AE0059F89B /* StationResponse.swift */; };
+		A5858D452813F5900059F89B /* StationArrivalDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5858D442813F5900059F89B /* StationArrivalDataResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		A5858D392813D50F0059F89B /* StationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailViewController.swift; sourceTree = "<group>"; };
 		A5858D3B2813DC2A0059F89B /* StationDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		A5858D422813E5AE0059F89B /* StationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationResponse.swift; sourceTree = "<group>"; };
+		A5858D442813F5900059F89B /* StationArrivalDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationArrivalDataResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				A5858D292813C9CC0059F89B /* LaunchScreen.storyboard */,
 				A5858D2C2813C9CC0059F89B /* Info.plist */,
 				A5858D422813E5AE0059F89B /* StationResponse.swift */,
+				A5858D442813F5900059F89B /* StationArrivalDataResponse.swift */,
 			);
 			path = SubwayStationSearchApp;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			files = (
 				A5858D3A2813D50F0059F89B /* StationDetailViewController.swift in Sources */,
 				A5858D232813C9CB0059F89B /* StationSearchViewController.swift in Sources */,
+				A5858D452813F5900059F89B /* StationArrivalDataResponse.swift in Sources */,
 				A5858D1F2813C9CB0059F89B /* AppDelegate.swift in Sources */,
 				A5858D3C2813DC2A0059F89B /* StationDetailCollectionViewCell.swift in Sources */,
 				A5858D212813C9CB0059F89B /* SceneDelegate.swift in Sources */,

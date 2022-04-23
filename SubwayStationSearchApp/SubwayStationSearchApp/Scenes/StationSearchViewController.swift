@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 class StationSearchViewController: UIViewController {
     private var numberOfCells: Int = 0
@@ -25,6 +26,7 @@ class StationSearchViewController: UIViewController {
         
        setNavigationItems()
         setTableViewLayout()
+        requestStationName()
        
     }
     
@@ -83,5 +85,21 @@ extension StationSearchViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = StationDetailViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+
+extension StationSearchViewController{
+    private func requestStationName(){
+        let url = "http://openapi.seoul.go.kr:8088/43575159747569673835476c6c7944/json/SearchInfoBySubwayNameService/1/5/서울역"
+        
+        AF.request(url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
+            .responseDecodable(of: StationResponse.self){ response in
+                guard case .success(let data) = response.result else { return }
+                
+                print(data.stations)
+                
+            }
+            .resume()
     }
 }
