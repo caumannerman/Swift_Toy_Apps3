@@ -10,7 +10,7 @@ import SnapKit
 import Alamofire
 
 class StationSearchViewController: UIViewController {
-    private var numberOfCells: Int = 0
+    private var stations: [Station] = []
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -26,7 +26,6 @@ class StationSearchViewController: UIViewController {
         
        setNavigationItems()
         setTableViewLayout()
-        requestStationName()
        
     }
     
@@ -53,30 +52,41 @@ class StationSearchViewController: UIViewController {
     }
 }
 
+//SearchBar에 대한 delegate
 extension StationSearchViewController: UISearchBarDelegate{
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        numberOfCells = 10
+       
         //지웠다 다시 그려줘야함 
         tableView.reloadData()
         tableView.isHidden = false
     }
+ 
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        numberOfCells = 0
         tableView.isHidden = true
+        stations = []
+    }
+    //text가 바뀔 때마다
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty{
+            return
+        }
+        requestStationName(from: searchText)
     }
 }
 
 
 extension StationSearchViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "\(indexPath.item)"
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
+        let station = stations[indexPath.row]
+        cell.textLabel?.text = station.stationName
+        cell.detailTextLabel?.text = station.lineNumber
        
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberOfCells
+        return stations.count
     }
 }
 
@@ -88,17 +98,20 @@ extension StationSearchViewController: UITableViewDelegate{
     }
 }
 
-
+// REST API
 extension StationSearchViewController{
-    private func requestStationName(){
-        let url = "http://openapi.seoul.go.kr:8088/43575159747569673835476c6c7944/json/SearchInfoBySubwayNameService/1/5/서울역"
+    private func requestStationName(from stationName: String){
+        
+        let url = "http://openapi.seoul.go.kr:8088/43575159747569673835476c6c7944/json/SearchInfoBySubwayNameService/1/5/\(stationName)"
         
         AF.request(url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
-            .responseDecodable(of: StationResponse.self){ response in
+            .responseDecodable(of: StationResponse.self){ [weak self] response in
                 guard case .success(let data) = response.result else { return }
                 
-                print(data.stations)
-                
+                //데이터 받아옴
+                self?.stations = data.stations
+                //테이블 뷰 다시 그려줌
+                self?.tableView.reloadData()
             }
             .resume()
     }
