@@ -15,6 +15,7 @@
 		A5858D342813CA1B0059F89B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A5858D332813CA1B0059F89B /* SnapKit */; };
 		A5858D372813CA300059F89B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A5858D362813CA300059F89B /* Alamofire */; };
 		A5858D3A2813D50F0059F89B /* StationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5858D392813D50F0059F89B /* StationDetailViewController.swift */; };
+		A5858D3C2813DC2A0059F89B /* StationDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5858D3B2813DC2A0059F89B /* StationDetailCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A5858D2A2813C9CC0059F89B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5858D2C2813C9CC0059F89B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5858D392813D50F0059F89B /* StationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailViewController.swift; sourceTree = "<group>"; };
+		A5858D3B2813DC2A0059F89B /* StationDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			children = (
 				A5858D222813C9CB0059F89B /* StationSearchViewController.swift */,
 				A5858D392813D50F0059F89B /* StationDetailViewController.swift */,
+				A5858D3B2813DC2A0059F89B /* StationDetailCollectionViewCell.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 				A5858D3A2813D50F0059F89B /* StationDetailViewController.swift in Sources */,
 				A5858D232813C9CB0059F89B /* StationSearchViewController.swift in Sources */,
 				A5858D1F2813C9CB0059F89B /* AppDelegate.swift in Sources */,
+				A5858D3C2813DC2A0059F89B /* StationDetailCollectionViewCell.swift in Sources */,
 				A5858D212813C9CB0059F89B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
