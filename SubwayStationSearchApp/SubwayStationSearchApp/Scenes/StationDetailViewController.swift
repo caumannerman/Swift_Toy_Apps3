@@ -11,11 +11,18 @@ import UIKit
 
 final class StationDetailViewController: UIViewController {
     
+    //reload를 위한 UIRefreshControl
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(fetchData), for: .valueChanged)
     
         return refreshControl
     }()
+    
+    @objc func fetchData(){
+        debugPrint("Refresh..!")
+        refreshControl.endRefreshing()
+    }
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
