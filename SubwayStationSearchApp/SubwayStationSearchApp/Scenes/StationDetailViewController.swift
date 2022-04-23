@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 
 final class StationDetailViewController: UIViewController {
+    private let station: Station
+    private var realtimeArrivalList: [RealTimeArrival] = []
     
     //reload를 위한 UIRefreshControl
     private lazy var refreshControl: UIRefreshControl = {
@@ -36,10 +38,21 @@ final class StationDetailViewController: UIViewController {
         return collectionView
     }()
     
+    init(station: Station){
+        self.station = station
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "왕십리"
+        navigationItem.title = station.stationName
+        
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints{
             $0.edges.equalToSuperview()
@@ -49,8 +62,7 @@ final class StationDetailViewController: UIViewController {
     
     @objc private func fetchData(){
         
-     
-        let stationName = "왕십리"
+        let stationName = station.stationName
         let url = "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/\(stationName.replacingOccurrences(of: "역", with: ""))"
     
         AF.request(url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
@@ -59,6 +71,9 @@ final class StationDetailViewController: UIViewController {
                 self?.refreshControl.endRefreshing()
                 
                 guard case .success(let data) = response.result else { print(response); return }
+                
+                self?.realtimeArrivalList = data.realtimeArrivalList
+                self?.collectionView.reloadData()
 
                 debugPrint(data.realtimeArrivalList)
             }.resume()
@@ -67,13 +82,13 @@ final class StationDetailViewController: UIViewController {
 
 extension StationDetailViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return realtimeArrivalList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StationDetailCollectinoViewCell", for: indexPath) as? StationDetailCollectionViewCell else { return UICollectionViewCell()}
-        
-        cell.setup()
+        let realtimeArrival = realtimeArrivalList[indexPath.row]
+        cell.setup(with: realtimeArrival)
         return cell
     }
 }

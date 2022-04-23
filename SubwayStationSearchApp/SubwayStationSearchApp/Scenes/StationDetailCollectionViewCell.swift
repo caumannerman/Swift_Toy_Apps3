@@ -26,11 +26,11 @@ final class StationDetailCollectionViewCell: UICollectionViewCell{
     
     
     
-    func setup(){
+    func setup(with realtimeArrival: RealTimeArrival){
         
         setupLayouts()
-        lineLabel.text = "한양대 방면"
-        remainTimeLabel.text = "뚝섬 도착"
+        lineLabel.text = realtimeArrival.line
+        remainTimeLabel.text = realtimeArrival.remainTime
     }
     
     func setupLayouts(){
