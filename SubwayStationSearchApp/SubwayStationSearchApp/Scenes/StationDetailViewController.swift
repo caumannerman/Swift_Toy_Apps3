@@ -11,6 +11,12 @@ import UIKit
 
 final class StationDetailViewController: UIViewController {
     
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+    
+        return refreshControl
+    }()
+    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = CGSize(width: view.frame.width - 32.0, height: 100.0)
@@ -22,6 +28,8 @@ final class StationDetailViewController: UIViewController {
         collectionView.register(StationDetailCollectionViewCell.self, forCellWithReuseIdentifier: "StationDetailCollectinoViewCell")
         
         collectionView.dataSource = self
+        //refreshControl 적용
+        collectionView.refreshControl = refreshControl
         return collectionView
     }()
     
