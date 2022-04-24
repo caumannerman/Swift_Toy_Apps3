@@ -49,16 +49,38 @@ UICollectionViewDelegate프로토콜의 viewForSupplementaryElementOfKind메서�
 미리 만들어놓은 Today 탭에 필요한 Today구조체와 해당 구조체에 들어갈 내용들을 담고있는 plist파일을 사용하여 Decode한 data를 사용 
 <img width="732" alt="스크린샷 2022-04-24 오후 6 19 09" src="https://user-images.githubusercontent.com/75043852/164969434-c3c6b95b-26d6-49f1-98ff-fbe42722e458.png">
 
+> UIActivityController ( Share Sheet )
+공유버튼 클릭 시 어떤 content를 어디로 share할지 선택할 수 있도록 UIButton에 UIActivityController를 addTarget해주었다.
+![IMG_16A272B6D906-1](https://user-images.githubusercontent.com/75043852/164970584-a45eb671-2f52-4e89-82ff-cd52757b2d20.jpeg)
+
+
 ## 2.3. 앱 Tab
+미리 만들어둔 Plist 파일과 Feature, RankingFeature 구조체를 사용해 데이터를 받아와 화면에 뿌려주는 방식 ( 아래 )은 Today탭과 동일하다.
+<img width="743" alt="스크린샷 2022-04-24 오후 8 10 35" src="https://user-images.githubusercontent.com/75043852/164973602-f691de34-b045-4c52-9fa7-cd1f8a46478a.png">
+특이점 몇가지만 정리해보았다. 
 
 > 2.3.1 UIScrollView와 UIView
- UIScrollView 내부에 다른 컴포넌트들을 배치하려면, 이들을 넣어줄 contentView가 있어야하므로, UIView를 SnapKit을 이용하여 UIScrollView크기에 맞춰주었다.
+ UIScrollView 내부에 다른 컴포넌트들을 배치하려면, 이들을 넣어줄 contentView가 있어야하므로, UIView를 SnapKit을 이용하여 UIScrollView 내부에 같은 크기로 맞춰주었다.
  <img width="586" alt="스크린샷 2022-04-24 오후 6 31 24" src="https://user-images.githubusercontent.com/75043852/164969887-bf97aa94-7f14-4bdb-9543-afc9ed708521.png">
  위와 같이 width를 scrollView와 같게 해주면, 자동으로 상하스크롤이 된다. ( height를 고정하면 좌우스크롤 )
  
+ > 2.3.2 상단의 FeatureSection의 가로 Scroll CollectionView
+  - 1. collectionView는 언제나 Layout을 필요로하기 때문에, layout내부에 scrollDirection을 horizontal로 설정해주었다.
+ <img width="315" alt="스크린샷 2022-04-24 오후 8 12 25" src="https://user-images.githubusercontent.com/75043852/164973665-dfac564b-717a-42ac-a048-e86531a567fd.png">
+ - 1. 가로 스크롤 item단위로 스크롤이 예쁘게 진행되도록 아래와 같이 설정해주었다.
+<img width="311" alt="스크린샷 2022-04-24 오후 8 13 27" src="https://user-images.githubusercontent.com/75043852/164973703-74f97ac5-fab9-4ea8-850a-68b1952987c1.png">
+
+> 2.3.3 가로 스크롤 CollectionView에서 한 눈에 보여지는 cell의 갯수 조절하기 
+ - 1. 해당 collectionView에 등록한 cell의 높이를 고정시켜준다 ( ex. 70)
+ <img width="518" alt="스크린샷 2022-04-24 오후 8 16 55" src="https://user-images.githubusercontent.com/75043852/164973823-f23252c3-1650-42a6-a5a5-f0093cba40f0.png">
  
- 
- 
+ - 2. UICollectionViewDelegateFlowLayout 프로토콜에서 sizeForItemAt메서드를 구현하며 height를 cell의 클래스에 설정된 대로  적용해준다
+
+<img width="848" alt="스크린샷 2022-04-24 오후 8 17 28" src="https://user-images.githubusercontent.com/75043852/164973837-cb823f6a-9b57-4640-948c-ebfa7609932c.png">
+
+- 3. collectionView의 높이를 autolayout에서 cell * 3의 height만큼 적용해주면, 3개까지만 보여지게 된다. ( 그 뒤로는 가로 스크롤 하며 볼 수 있다.)
+<img width="512" alt="스크린샷 2022-04-24 오후 8 18 11" src="https://user-images.githubusercontent.com/75043852/164973861-c6ef39a5-0b3f-436a-9036-2c4847932478.png">
+
  
 
 # 3. 지하철 역 검색 앱 
