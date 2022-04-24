@@ -4,6 +4,9 @@ Swift와 OpenAPI를 사용한 간단한 프로젝트 7가지
 # 1. 자산관리 App
 
 # 2. AppStore 앱 
+
+설명 영상: https://www.youtube.com/watch?v=WI2H7lAXY_g
+
 UITabVarController 안의 Today, App 2개 탭으로 구성 
 
 > Today탭 
