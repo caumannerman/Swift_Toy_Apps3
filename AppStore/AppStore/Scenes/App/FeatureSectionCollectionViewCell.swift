@@ -85,7 +85,5 @@ private extension FeatureSectionCollectionViewCell {
             $0.top.equalTo(descriptionLabel.snp.bottom).offset(8.0)
             $0.bottom.equalToSuperview().inset(8.0)
         }
-        
-        
     }
 }

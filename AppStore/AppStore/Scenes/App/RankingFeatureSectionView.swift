@@ -15,7 +15,7 @@ final class RankingFeatureSectionView: UIView{
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18.0, weight: .black)
-        label.text = "iPhone이 처음이라며는"
+        label.text = "iPhone이 처음이라면"
         
         return label
     }()
@@ -82,7 +82,7 @@ extension RankingFeatureSectionView: UICollectionViewDataSource{
         cell.setup(rankingFeature: rankingFeature)
         
         return cell
-    }
+        }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         rankingFeatureList.count

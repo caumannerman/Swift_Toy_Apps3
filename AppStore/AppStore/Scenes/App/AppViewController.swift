@@ -23,15 +23,12 @@ final class AppViewController: UIViewController{
         let rankingFeatureSectionView = RankingFeatureSectionView(frame: .zero)
         let exchangeCodeButtonView = ExchangeCodeButtonView(frame: .zero)
         
-//        featureSectionView.backgroundColor = .red
-//        rankingFeatureSectionView.backgroundColor = .blue
-//        exchangeCodeButtonView.backgroundColor = .yellow
         //단순 스크롤 여유를 위한 UIView
         let spacingView = UIView()
         spacingView.snp.makeConstraints{
             $0.height.equalTo(100.0)
         }
-        
+        //차례대로 stackView에 추가 
         [ featureSectionView, rankingFeatureSectionView, exchangeCodeButtonView, spacingView ].forEach{
             stackView.addArrangedSubview($0)
         }

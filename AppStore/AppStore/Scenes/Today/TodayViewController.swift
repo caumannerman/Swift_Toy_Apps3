@@ -26,8 +26,6 @@ final class TodayViewController: UIViewController {
                             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "TodayCollectionHeaderView")
         
         return collectionView
-
-        
     }()
     
     override func viewDidLoad() {
@@ -103,6 +101,6 @@ private extension TodayViewController {
             let result = try PropertyListDecoder().decode([Today].self, from: data )
             
             todayList = result
-        }catch {}
+        }catch { }
     }
 }
