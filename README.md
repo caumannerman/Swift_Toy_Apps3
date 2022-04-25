@@ -97,7 +97,7 @@ UISearchController()를 생성하여 navigationItem.searchColtroller = searchCon
 
 # 4. 인스타그램 UI 샘플 앱 
 
-구동영상: ...
+구동영상: https://www.youtube.com/watch?v=Dsgedv-h4Z4
 사용한 외부 라이브러리 : SnapKit
 
 ## 프로젝트 Point 정리 
