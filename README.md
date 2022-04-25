@@ -88,11 +88,55 @@ UICollectionViewDelegate프로토콜의 viewForSupplementaryElementOfKind메서�
 
 # 3. 지하철 역 검색 앱 
 
-> 1. UISearchController 사용 ( UINavigationItem으로 사용! )
+## 1. UISearchController 사용 ( UINavigationItem으로 사용! )
 >> UISearchController 내부으 UISearchBar를 이용해 검색 
 UISearchController()를 생성하여 navigationItem.searchColtroller = searchController로 enbedded해주면 된다 .
 
-> 2. UIRefreshControl로 reload()가 가능하 하였다.
+## 2. UIRefreshControl로 reload()가 가능하 하였다.
+
 
 # 4. 인스타그램 UI 샘플 앱 
+
+구동영상: ...
+사용한 외부 라이브러리 : SnapKit
+
+## 프로젝트 Point 정리 
+- 1. UITabBarController.viewControllers에 두 개의 UINavigationController를 tabBarItem정보와 함께 추가하여 하단 탭을 구성.
+- 1. Navigation rightBarButtonItem을 달아, 첨부할 이미지를 골라 게시글을 작성할 수 있도록 ImagePickerController를 present하였다.
+
+<img width="508" alt="스크린샷 2022-04-25 오후 5 38 21" src="https://user-images.githubusercontent.com/75043852/165052543-6828cf70-ab0c-4611-b819-23716a084e48.png">
+
+- 1. UIImagePickerControllerDelegate, UINavigationControllerDelegate
+해당 프로토콜의 didFinishPickingMediaWithInfo 메서드를 구현하며, 선택한 이미지를 담아 피드작성 UIViewController를 새롭게 Present해주었다.
+
+- 1. UIButton컴포넌트들이 반복적으로 사용할 메서드를 UIButton+.swift 파일에 extension으로 달아주었다. 
+- 1. 이외에는 일반적으로 CollectionView를 구현하는데 필요한 프로토콜과 SnapKit을 사용한 AutoLayout 작성
+
+> 시뮬레이터 스크린 샷
+<p>
+  <img width="220" alt="스크린샷 2022-04-25 오후 5 09 42" src="https://user-images.githubusercontent.com/75043852/165047818-7294e100-5791-4cc6-90dc-ba8a10b66e77.png">
+
+<img width="220" alt="스크린샷 2022-04-25 오후 5 09 56" src="https://user-images.githubusercontent.com/75043852/165047849-84465c24-87a6-489d-93b5-244c0a2310cc.png">
+
+  <img width="220" alt="스크린샷 2022-04-25 오후 5 10 09" src="https://user-images.githubusercontent.com/75043852/165047855-d83b04c1-755d-4dad-92c5-b373399ceef6.png">
+<img width="220" alt="스크린샷 2022-04-25 오후 5 10 22" src="https://user-images.githubusercontent.com/75043852/165047861-aa732488-d9e7-401f-b1bf-526aaab54dbf.png">
+
+  <img width="220" alt="스크린샷 2022-04-25 오후 5 11 00" src="https://user-images.githubusercontent.com/75043852/165047947-6f6eded0-e297-46ee-8437-aca1f28c0acc.png">
+
+  <img width="220" alt="스크린샷 2022-04-25 오후 5 11 38" src="https://user-images.githubusercontent.com/75043852/165047958-52d7ce76-d919-4bf5-97e8-c8f4e6aaf380.png">
+</p>
+
+> 실제 기기 스크린 샷 (다크모드) 
+<p>
+   <img width="220" alt="스크린샷 2022-04-25 오후 5 11 38" src="https://user-images.githubusercontent.com/75043852/165051349-820766ef-37d0-4b83-9522-bf19c76ab990.PNG">
+  <img width="220" alt="스크린샷 2022-04-25 오후 5 11 38" src="https://user-images.githubusercontent.com/75043852/165051367-5a92a39a-a3d2-4530-9b68-70d5f5ba6571.PNG">
+  <img width="220" alt="스크린샷 2022-04-25 오후 5 11 38" src="https://user-images.githubusercontent.com/75043852/165051379-0c3d4dba-7f0b-471a-a111-9d3ab2565ae3.PNG">
+  <img width="220" alt="스크린샷 2022-04-25 오후 5 11 38" src="https://user-images.githubusercontent.com/75043852/165051390-df233199-9456-4b7d-ae1b-367084eae47e.PNG">
+  
+</p>
+
+
+
+
+
 
