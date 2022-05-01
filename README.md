@@ -87,12 +87,25 @@ UICollectionViewDelegate프로토콜의 viewForSupplementaryElementOfKind메서�
  
 
 # 3. 지하철 역 검색 앱 
+사용 외부 라이브러리 : SnapKit, Alamofire 
 
 ## 1. UISearchController 사용 ( UINavigationItem으로 사용! )
->> UISearchController 내부으 UISearchBar를 이용해 검색 
+>> UISearchController 내부의 UISearchBar를 이용해 검색 
 UISearchController()를 생성하여 navigationItem.searchColtroller = searchController로 enbedded해주면 된다 .
 
-## 2. UIRefreshControl로 reload()가 가능하 하였다.
+## 2. UIRefreshControl로 CollectionView의 reload()가 가능하게 하였다.
+
+## 3. HTTP통신: Alamofire로 수행 
+- 1. Alamofire는 Foundation프레임워크에서 제공하는 URL로딩 시스템을 기반으로 구축되었고, URLSession을 보다 간결하게, 가독성 있게 사용할 수 있다.
+- 1. Alamofire는 모든 Encodable 타입 값을 request의 매개변수로 사용 가능 (Encodable: type that can encode itself to external representation)
+>> Encodable : Data Type이 스스로 JSON이나 XML과 같은 표현방식으로 Encoding될 수 있도록 따라야하는 프로토콜
+
+
+
+
+
+
+
 
 
 # 4. 인스타그램 UI 샘플 앱 
