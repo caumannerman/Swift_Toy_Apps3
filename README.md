@@ -90,6 +90,12 @@ UICollectionViewDelegate프로토콜의 viewForSupplementaryElementOfKind메서�
 
 구동영상 : https://www.youtube.com/watch?v=CP-rMOZ4Z7Q
 
+<p>
+<img width="250" alt="스크린샷 2022-05-26 오후 9 11 58" src="https://user-images.githubusercontent.com/75043852/170485469-acf9b89b-72a3-40fa-8180-5bc9dd4f1cb0.png">
+<img width="250" alt="스크린샷 2022-05-26 오후 9 12 08" src="https://user-images.githubusercontent.com/75043852/170485490-4a984625-2b8f-4b32-90a2-e27435ef19bb.png">
+<img width="250" alt="스크린샷 2022-05-26 오후 9 12 17" src="https://user-images.githubusercontent.com/75043852/170485507-3f6834c0-7956-4a10-8e55-cb39d58694d3.png">
+</p>
+
 사용 외부 라이브러리 : SnapKit, Alamofire 
 
 > ## 프로젝트 포인트 3가지
